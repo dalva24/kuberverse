@@ -12,7 +12,7 @@ echo "********** $KVMSG ->> Adding Kubernetes and Docker-CE Repo"
 echo "********** $KVMSG"
 echo "********** $KVMSG"
 ### Install packages to allow apt to use a repository over HTTPS
-apt-get update && apt-get install apt-transport-https ca-certificates curl software-properties-common
+apt-get update && apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 
 ### Add Kubernetes GPG key
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
@@ -41,7 +41,7 @@ echo "********** $KVMSG"
 echo "********** $KVMSG ->> Installing Required & Recommended Packages"
 echo "********** $KVMSG"
 echo "********** $KVMSG"
-apt-get install -y avahi-daemon libnss-mdns traceroute htop httpie bash-completion docker-ce=5:18.09.1~3-0~ubuntu-xenial kubeadm kubelet kubectl
+apt-get install -y avahi-daemon libnss-mdns traceroute htop httpie bash-completion docker-ce docker-ce-cli containerd.io kubeadm kubelet kubectl
 
 # Setup Docker daemon.
 cat > /etc/docker/daemon.json <<EOF
